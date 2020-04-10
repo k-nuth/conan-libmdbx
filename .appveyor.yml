@@ -6,9 +6,9 @@ build: false
 
 environment:
     PYTHON_HOME: "C:\\Python37"
-    # PYTHON: "C:\\Python37"
-    # PYTHON_VERSION: "3.7.3"
-    # PYTHON_ARCH: "32"
+    PYTHON: "C:\\Python37"
+    PYTHON_VERSION: "3.7.3"
+    PYTHON_ARCH: "32"
 
     CONAN_REFERENCE: "libmdbx/0.7.0"
     CONAN_USERNAME: "kth"
