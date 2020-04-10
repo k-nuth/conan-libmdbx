@@ -66,10 +66,18 @@ class LibMDBXConan(ConanFile):
     def package_id(self):
         self.info.options.verbose = "ANY"
 
+    def _fix_cmake_msvc(self):
+        if self.settings.compiler != "Visual Studio":
+            return
+        with fileinput.FileInput(os.path.join("cmake", "compiler.cmake"), inplace=True, backup='.bak') as file:
+            for line in file:
+                print(line.replace('if (CMAKE_VERSION MATCHES ".*MSVC.*")', 'if (FALSE AND CMAKE_VERSION MATCHES ".*MSVC.*")'), end='')
+
     def source(self):
         git = tools.Git()
         git.clone("https://github.com/erthink/libmdbx.git")
         git.checkout("v%s" % (self.version,))
+        self._fix_cmake_msvc()
 
 
     def build(self):
