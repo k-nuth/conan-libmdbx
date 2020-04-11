@@ -111,9 +111,9 @@ class LibMDBXConan(ConanFile):
 
     def package_info(self):
         if self.settings.build_type == "Debug":
-            self.cpp_info.libs = ["libmdbx"]
+            self.cpp_info.libs = ["mdbx"]
         else:
-            self.cpp_info.libs = ["libmdbx"]
+            self.cpp_info.libs = ["mdbx"]
             
         if  self.settings.os == "Windows":
             self.cpp_info.libs.append("ntdll")
