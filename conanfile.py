@@ -75,9 +75,9 @@ class LibMDBXConan(ConanFile):
 
     def source(self):
         git = tools.Git()
-        # git.clone("https://github.com/erthink/libmdbx.git")
-        # git.checkout("v%s" % (self.version,))
-        git.clone("https://github.com/fpelliccioni/libmdbx.git")        #TODO: temp repo
+        # git.clone("https://github.com/fpelliccioni/libmdbx.git")        #TODO: temp repo
+        git.clone("https://github.com/erthink/libmdbx.git")
+        git.checkout("v%s" % (self.version,))
         self._fix_cmake_msvc()
 
 
